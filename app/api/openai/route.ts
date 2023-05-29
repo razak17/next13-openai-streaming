@@ -14,7 +14,7 @@ export const POST = async (req: Request, res: Response) => {
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
-    max_tokens: 30,
+    max_tokens: 200,
     stream: true,
     n: 1,
   };

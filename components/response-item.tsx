@@ -1,3 +1,5 @@
+'use client';
+
 export function ResponseItem({ text }: { text: string }) {
   return (
     <div className="flex gap-3 p-2">
