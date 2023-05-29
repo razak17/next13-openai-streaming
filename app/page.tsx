@@ -1,4 +1,4 @@
-import { FormInput } from "@/components/form-input";
+import { Form } from "@/components/form";
 import { Header } from "@/components/header";
 import { ResponseItem } from "@/components/response-item";
 
@@ -27,7 +27,7 @@ export default function Home() {
             <ResponseItem key={idx} text={response.text} />
           ))}
         </div>
-        <FormInput />
+        <Form />
       </div>
     </div>
   );

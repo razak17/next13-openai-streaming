@@ -1,6 +1,6 @@
 "use client";
 
-export function FormInput() {
+export function Form() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
   }
@@ -25,10 +25,10 @@ export function FormInput() {
       >
         <div className="relative w-full">
           <input
-            id="message"
-            required
-            placeholder="Write a message"
-            className="
+          id="message"
+          required
+          placeholder="Ask a question..."
+          className="
           text-black
           font-light
           py-4
