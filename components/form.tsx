@@ -30,6 +30,7 @@ export function Form() {
       const { value, done: doneReading } = await reader.read();
       done = doneReading;
       const chunkValue = decoder.decode(value);
+      if (chunkValue === "") continue;
       setResponse((prev) => prev + chunkValue);
     }
     setIsLoading(false);
@@ -40,13 +41,13 @@ export function Form() {
     <div
       className="
         py-4
-        px-4 
-        bg-white 
+        px-4
+        bg-white
         border
-        flex 
-        items-center 
-        gap-2 
-        lg:gap-4 
+        flex
+        items-center
+        gap-2
+        lg:gap-4
         w-full
       "
     >
@@ -57,6 +58,7 @@ export function Form() {
         <div className="relative w-full">
           <input
             required
+            disabled={isLoading}
             onChange={(e) => setInput(e.target.value)}
             value={input}
             id="message"
@@ -66,21 +68,23 @@ export function Form() {
               font-light
               py-4
               px-4
-              bg-neutral-100 
-              w-full 
+              bg-neutral-100
+              w-full
               focus:outline-none
             "
           />
         </div>
         <button
           type="submit"
+          disabled={isLoading}
           className="
-            px-6 
-            py-4 
-            bg-sky-500 
-            cursor-pointer 
-            hover:bg-sky-600 
+            px-6
+            py-4
+            bg-sky-500
+            cursor-pointer
+            hover:bg-sky-600
             transition
+          disabled ? 'bg-sky-300 cursor-not-allowed' : 'bg-sky-500'
           "
         >
           {isLoading ? "Loading..." : "Submit"}
